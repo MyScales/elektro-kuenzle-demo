@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elektro Künzle AG — Elektroinstallationen Neuhausen am Rheinfall</title>
-  <meta name="description" content="Elektro Künzle AG: Elektroinstallationen, Photovoltaik und Industrieautomation in Neuhausen am Rheinfall. Seit 2005. Kompetent. Zuverlässig.">
+  <title>Elektro Künzle AG — Elektriker Neuhausen am Rheinfall</title>
+  <meta name="description" content="Elektro Künzle AG: Ihr Elektriker in Neuhausen am Rheinfall. Elektroinstallationen, Photovoltaik, Industrieautomation. Seit 2005.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,8 @@
       --gray-600: #6b6660;
       --gray-800: #3d3a36;
       --dark: #1a1816;
-      --accent: #2b7ab8;
-      --accent-dark: #1f5a8a;
+      --accent: #4a4a4a;
+      --accent-dark: #2f2f2f;
       
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-serif: 'Playfair Display', Georgia, serif;
@@ -106,12 +106,13 @@
       z-index: 100;
       padding: 20px 0;
       transition: all 0.4s var(--ease-out);
+      background: transparent;
     }
 
     header.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 1px 0 var(--gray-100);
+      background: rgba(10, 10, 10, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
     .header-inner {
@@ -130,9 +131,8 @@
       height: 48px;
       width: auto;
       background: #fff;
-      padding: 6px 10px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
+      padding: 8px 12px;
+      border-radius: 8px;
     }
 
     .logo-text {
@@ -155,19 +155,20 @@
     .nav-links a {
       font-size: 0.9rem;
       font-weight: 500;
-      color: var(--gray-600);
+      color: var(--white);
       transition: color 0.3s;
     }
 
     .nav-links a:hover {
-      color: var(--dark);
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .header-cta {
       display: none;
       padding: 12px 24px;
-      background: var(--dark);
+      background: transparent;
       color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.6);
       font-size: 0.9rem;
       font-weight: 500;
       border-radius: 100px;
@@ -179,7 +180,8 @@
     }
 
     .header-cta:hover {
-      background: var(--accent);
+      background: var(--white);
+      color: var(--dark);
       transform: translateY(-2px);
     }
 
@@ -203,7 +205,7 @@
     .menu-toggle span {
       width: 24px;
       height: 2px;
-      background: var(--dark);
+      background: var(--white);
       transition: all 0.3s;
     }
 
@@ -216,7 +218,7 @@
       right: 0;
       bottom: 0;
       background: var(--white);
-      z-index: 150;
+      z-index: 90;
       padding: 100px 24px 40px;
       flex-direction: column;
       align-items: center;
@@ -250,6 +252,10 @@
       transform: rotate(-45deg) translate(5px, -5px);
     }
 
+    .menu-toggle.active span {
+      background: var(--dark);
+    }
+
     /* ============================================
        HERO
     ============================================ */
@@ -257,20 +263,33 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 100px;
-      background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+      padding: 140px 0 100px;
       position: relative;
       overflow: hidden;
+      color: var(--white);
     }
 
     .hero::before {
       content: '';
       position: absolute;
-      top: 20%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(43, 122, 184, 0.08) 0%, transparent 70%);
+      inset: 0;
+      background-image: url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1);
+      transform-origin: center;
+      animation: hero-kenburns 26s ease-in-out infinite alternate;
+      will-change: transform;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.45) 45%, rgba(0, 0, 0, 0.3) 100%);
+      z-index: 1;
       pointer-events: none;
     }
 
@@ -287,7 +306,7 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--accent);
+      color: rgba(255, 255, 255, 0.7);
       margin-bottom: 24px;
     }
 
@@ -295,7 +314,7 @@
       content: '';
       width: 40px;
       height: 1px;
-      background: var(--accent);
+      background: rgba(255, 255, 255, 0.6);
     }
 
     .hero-title {
@@ -304,7 +323,7 @@
       font-weight: 500;
       line-height: 1.05;
       letter-spacing: -0.03em;
-      color: var(--dark);
+      color: var(--white);
       margin-bottom: 32px;
       max-width: 900px;
     }
@@ -312,7 +331,7 @@
     .hero-subtitle {
       font-size: clamp(1.1rem, 2vw, 1.35rem);
       font-weight: 400;
-      color: var(--gray-600);
+      color: rgba(255, 255, 255, 0.8);
       max-width: 580px;
       margin-bottom: 48px;
       line-height: 1.7;
@@ -371,13 +390,31 @@
       color: var(--dark);
     }
 
+    .hero .btn-primary {
+      background: var(--white);
+      color: var(--dark);
+    }
+
+    .hero .btn-primary:hover {
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero .btn-secondary {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero .btn-secondary:hover {
+      color: var(--white);
+    }
+
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 40px;
       margin-top: 80px;
       padding-top: 48px;
-      border-top: 1px solid var(--gray-100);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
       max-width: 600px;
     }
 
@@ -385,14 +422,19 @@
       font-family: var(--font-serif);
       font-size: 2.5rem;
       font-weight: 500;
-      color: var(--dark);
+      color: var(--white);
       line-height: 1;
       margin-bottom: 8px;
     }
 
     .stat-label {
       font-size: 0.85rem;
-      color: var(--gray-600);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    @keyframes hero-kenburns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
     }
 
     /* ============================================
@@ -743,7 +785,9 @@
     .project-card {
       position: relative;
       aspect-ratio: 16/10;
-      background: linear-gradient(135deg, var(--light) 0%, var(--gray-100) 100%);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       border-radius: 16px;
       overflow: hidden;
       cursor: pointer;
@@ -788,16 +832,6 @@
     .project-meta {
       font-size: 0.9rem;
       color: rgba(255,255,255,0.7);
-    }
-
-    .project-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-400);
-      font-weight: 500;
     }
 
     /* ============================================
@@ -1155,6 +1189,14 @@
       animation: scrollPulse 2s ease-in-out infinite;
     }
 
+    .hero .scroll-indicator {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero .scroll-indicator::after {
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent);
+    }
+
     @keyframes scrollPulse {
       0%, 100% { transform: scaleY(1); opacity: 1; }
       50% { transform: scaleY(0.5); opacity: 0.5; }
@@ -1201,47 +1243,47 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <div class="header-inner">
-        <a href="#" class="logo">
-          <img src="logo-original.jpg" alt="Elektro Künzle" class="logo-img">
-        </a>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="#leistungen">Leistungen</a></li>
-            <li><a href="#prozess">Ablauf</a></li>
-            <li><a href="#projekte">Projekte</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-          </ul>
-        </nav>
-        <a href="#kontakt" class="header-cta">Kontakt aufnehmen</a>
-        <button class="menu-toggle" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <a href="#leistungen" class="mobile-link">Leistungen</a>
-    <a href="#prozess" class="mobile-link">Ablauf</a>
-    <a href="#projekte" class="mobile-link">Projekte</a>
-    <a href="#kontakt" class="mobile-link">Kontakt</a>
-    <a href="tel:+41526755275" class="btn-primary">052 675 52 75</a>
-  </div>
-
   <!-- HERO -->
   <section class="hero">
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <div class="header-inner">
+          <a href="#" class="logo">
+            <img src="logo-original.jpg" alt="Elektro Künzle AG" class="logo-img">
+          </a>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="#leistungen">Leistungen</a></li>
+              <li><a href="#prozess">Ablauf</a></li>
+              <li><a href="#projekte">Projekte</a></li>
+              <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+          </nav>
+          <a href="#kontakt" class="header-cta">Kontakt aufnehmen</a>
+          <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <a href="#leistungen" class="mobile-link">Leistungen</a>
+      <a href="#prozess" class="mobile-link">Ablauf</a>
+      <a href="#projekte" class="mobile-link">Projekte</a>
+      <a href="#kontakt" class="mobile-link">Kontakt</a>
+      <a href="tel:+41526755275" class="btn-primary">052 675 52 75</a>
+    </div>
+
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow" data-animate>Elektroinstallationen Neuhausen</div>
-        <h1 class="hero-title" data-animate data-animate-delay="1">Strom für<br>Ihre Zukunft</h1>
-        <p class="hero-subtitle" data-animate data-animate-delay="2">Seit 2005 Ihr Partner für Elektroinstallationen, Photovoltaik und Industrieautomation in Neuhausen am Rheinfall.</p>
+        <div class="hero-eyebrow" data-animate>Elektriker Neuhausen am Rheinfall</div>
+        <h1 class="hero-title" data-animate data-animate-delay="1">Elektro Künzle AG</h1>
+        <p class="hero-subtitle" data-animate data-animate-delay="2">Zuverlässige Elektroinstallationen für Privat und Gewerbe. Von der Steckdose bis zur Photovoltaikanlage.</p>
         <div class="hero-actions" data-animate data-animate-delay="3">
           <a href="tel:+41526755275" class="btn-primary">
             Projekt besprechen
@@ -1255,16 +1297,16 @@
         </div>
         <div class="hero-stats" data-animate data-animate-delay="4">
           <div class="stat">
-            <div class="stat-number">20+</div>
+            <div class="stat-number">19+</div>
             <div class="stat-label">Jahre Erfahrung</div>
           </div>
           <div class="stat">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Elektro-Kompetenz</div>
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Projekte</div>
           </div>
           <div class="stat">
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">Notfall-Service</div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Regional</div>
           </div>
         </div>
       </div>
@@ -1278,14 +1320,14 @@
       <div class="about-grid">
         <div class="about-content" data-animate>
           <div class="section-eyebrow">Über Uns</div>
-          <h2 class="section-title">Elektro-Kompetenz<br>seit 2005.</h2>
-          <p class="section-text">Von der Planung bis zur Installation — wir liefern massgeschneiderte Lösungen für Privat, Gewerbe und Industrie.</p>
-          <p class="section-text">Als etablierte AG aus Neuhausen am Rheinfall setzen wir auf Qualität, Zuverlässigkeit und persönliche Betreuung. Ihre Zufriedenheit ist unser Antrieb.</p>
+          <h2 class="section-title">Seit 2005 elektrisch zuverlässig.<br>Mit Herz und Verstand.</h2>
+          <p class="section-text">Elektro Künzle AG ist ein regionaler Familienbetrieb aus Neuhausen am Rheinfall. Wir stehen für saubere Arbeit, klare Kommunikation und Lösungen, die im Alltag funktionieren.</p>
+          <p class="section-text">Ob Neu- und Umbauten, PV-Anlagen oder Industrieautomation: Wir begleiten Sie von der Beratung bis zur Inbetriebnahme — persönlich, termintreu und vor Ort.</p>
           <div class="about-signature">
-            <div class="signature-avatar">RS</div>
+            <div class="signature-avatar">EK</div>
             <div>
-              <div class="signature-name">Roger Stamm</div>
-              <div class="signature-title">Geschäftsführer</div>
+              <div class="signature-name">Familie Künzle</div>
+              <div class="signature-title">Inhaber & Geschäftsführung</div>
             </div>
           </div>
         </div>
@@ -1311,24 +1353,24 @@
       <div class="services-grid">
         <div class="service-card" data-animate data-animate-delay="1">
           <div class="service-icon">
-            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
           <h3 class="service-title">Elektroinstallationen</h3>
-          <p class="service-desc">Neuinstallationen, Umbauten und Sanierungen für Privat, Gewerbe und Industrie. Fachgerecht und normkonform.</p>
+          <p class="service-desc">Neu- und Umbauten, Sanierungen und Smart-Home-Lösungen. Sicher, normgerecht und sauber umgesetzt.</p>
         </div>
         <div class="service-card" data-animate data-animate-delay="2">
           <div class="service-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
           </div>
           <h3 class="service-title">Photovoltaik</h3>
-          <p class="service-desc">Solaranlagen für Ihr Dach. Von der Planung über die Installation bis zur Inbetriebnahme — alles aus einer Hand.</p>
+          <p class="service-desc">Solaranlagen, Speicherlösungen und Beratung für mehr Unabhängigkeit und effiziente Energie.</p>
         </div>
         <div class="service-card" data-animate data-animate-delay="3">
           <div class="service-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01M10 12h.01M14 12h.01M18 12h.01"/></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           </div>
           <h3 class="service-title">Industrieautomation</h3>
-          <p class="service-desc">Steuerungen, Schaltanlagen und Automatisierungslösungen für die Industrie. Massgeschneidert für Ihre Anforderungen.</p>
+          <p class="service-desc">Steuerungen, Schaltanlagen und Service für zuverlässige Prozesse in Industrie und Gewerbe.</p>
         </div>
       </div>
     </div>
@@ -1339,28 +1381,28 @@
     <div class="container">
       <div class="process-header" data-animate>
         <div class="section-eyebrow">Ablauf</div>
-        <h2 class="section-title">Vier Schritte zu Ihrer Elektrolösung</h2>
+        <h2 class="section-title">Vier Schritte zu Ihrer Elektroinstallation</h2>
       </div>
       <div class="process-steps">
         <div class="process-step" data-animate data-animate-delay="1">
           <div class="process-number">01</div>
           <h3 class="process-title">Beratung</h3>
-          <p class="process-desc">Wir treffen uns vor Ort, besprechen Ihre Wünsche und analysieren die Gegebenheiten.</p>
+          <p class="process-desc">Wir klären Anforderungen, Budget und Rahmenbedingungen direkt vor Ort.</p>
         </div>
         <div class="process-step" data-animate data-animate-delay="2">
           <div class="process-number">02</div>
           <h3 class="process-title">Offerte</h3>
-          <p class="process-desc">Sie erhalten eine transparente, detaillierte Offerte ohne versteckte Kosten.</p>
+          <p class="process-desc">Sie erhalten eine transparente, nachvollziehbare Offerte mit klaren Leistungen.</p>
         </div>
         <div class="process-step" data-animate data-animate-delay="3">
           <div class="process-number">03</div>
-          <h3 class="process-title">Ausführung</h3>
-          <p class="process-desc">Unser Team arbeitet sauber, pünktlich und mit höchster Präzision.</p>
+          <h3 class="process-title">Installation</h3>
+          <p class="process-desc">Wir installieren sauber, effizient und nach aktuellen Sicherheitsstandards.</p>
         </div>
         <div class="process-step" data-animate data-animate-delay="4">
           <div class="process-number">04</div>
-          <h3 class="process-title">Übergabe</h3>
-          <p class="process-desc">Gemeinsame Abnahme, aufgeräumte Baustelle, zufriedene Kunden.</p>
+          <h3 class="process-title">Inbetriebnahme</h3>
+          <p class="process-desc">Gemeinsame Prüfung, Einweisung und reibungslose Übergabe.</p>
         </div>
       </div>
     </div>
@@ -1382,36 +1424,32 @@
         </a>
       </div>
       <div class="projects-grid">
-        <div class="project-card" data-animate data-animate-delay="1">
-          <div class="project-placeholder">Projekt 1</div>
+        <div class="project-card" style="background-image: url('project-1.jpg');" data-animate data-animate-delay="1">
           <div class="project-overlay"></div>
           <div class="project-content">
-            <h3 class="project-title">Neubau EFH</h3>
+            <h3 class="project-title">EFH Neubau</h3>
             <p class="project-meta">Elektroinstallation · Neuhausen</p>
           </div>
         </div>
-        <div class="project-card" data-animate data-animate-delay="2">
-          <div class="project-placeholder">Projekt 2</div>
+        <div class="project-card" style="background-image: url('project-2.jpg');" data-animate data-animate-delay="2">
           <div class="project-overlay"></div>
           <div class="project-content">
-            <h3 class="project-title">Neubau EFH</h3>
-            <p class="project-meta">15 kWp · Schaffhausen</p>
+            <h3 class="project-title">PV-Anlage</h3>
+            <p class="project-meta">Photovoltaik · Schaffhausen</p>
           </div>
         </div>
-        <div class="project-card" data-animate data-animate-delay="3">
-          <div class="project-placeholder">Projekt 3</div>
-          <div class="project-overlay"></div>
-          <div class="project-content">
-            <h3 class="project-title">Industriehalle</h3>
-            <p class="project-meta">Automation · Beringen</p>
-          </div>
-        </div>
-        <div class="project-card" data-animate data-animate-delay="4">
-          <div class="project-placeholder">Projekt 4</div>
+        <div class="project-card" style="background-image: url('project-3.jpg');" data-animate data-animate-delay="3">
           <div class="project-overlay"></div>
           <div class="project-content">
             <h3 class="project-title">Gewerbeumbau</h3>
-            <p class="project-meta">Beleuchtung & Steuerung</p>
+            <p class="project-meta">Industrieautomation · Beringen</p>
+          </div>
+        </div>
+        <div class="project-card" style="background-image: url('project-4.jpg');" data-animate data-animate-delay="4">
+          <div class="project-overlay"></div>
+          <div class="project-content">
+            <h3 class="project-title">Smart Home</h3>
+            <p class="project-meta">Elektrosanierung · Neuhausen</p>
           </div>
         </div>
       </div>
@@ -1422,7 +1460,7 @@
   <section class="testimonial">
     <div class="container">
       <div class="testimonial-content" data-animate>
-        <p class="testimonial-quote">Elektro Künzle hat unsere Vorstellungen nicht nur umgesetzt, sondern übertroffen. Pünktlich, sauber, professionell.</p>
+        <p class="testimonial-quote">Elektro Künzle hat unsere Wünsche schnell verstanden und die Installation sauber umgesetzt. Zuverlässig und professionell.</p>
         <div class="testimonial-author">
           <div class="author-avatar"></div>
           <div class="author-info">
@@ -1438,8 +1476,8 @@
   <section class="cta" id="kontakt">
     <div class="container">
       <div class="cta-box" data-animate>
-        <h2 class="cta-title">Bereit für Ihre neue Oberfläche?</h2>
-        <p class="cta-text">Rufen Sie uns an oder schreiben Sie uns. Wir melden uns innerhalb von 48 Stunden.</p>
+        <h2 class="cta-title">Bereit für Ihr Elektroprojekt?</h2>
+        <p class="cta-text">Rufen Sie uns an oder schreiben Sie uns. Wir melden uns zeitnah.</p>
         <div class="cta-actions">
           <a href="tel:+41526755275" class="cta-btn primary">
             052 675 52 75
@@ -1458,9 +1496,9 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="logo-original.jpg" alt="Elektro Künzle">
+            <img src="logo-original.jpg" alt="Elektro Künzle AG">
           </div>
-          <p class="footer-desc">Ihr Partner für Elektroinstallationen, Photovoltaik und Industrieautomation in Neuhausen am Rheinfall. Seit 2005.</p>
+          <p class="footer-desc">Ihr Partner für Elektroinstallationen in Neuhausen am Rheinfall und Umgebung. Seit 2005.</p>
         </div>
         <div>
           <h4 class="footer-title">Navigation</h4>
@@ -1501,19 +1539,21 @@
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+
+    const setMenuState = (isOpen) => {
+      menuToggle.classList.toggle('active', isOpen);
+      mobileMenu.classList.toggle('active', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
 
     menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      setMenuState(!mobileMenu.classList.contains('active'));
     });
 
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
+        setMenuState(false);
       });
     });
 
