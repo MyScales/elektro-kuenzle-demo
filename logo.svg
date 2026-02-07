@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none">
+  <!-- Blue square with rounded corners -->
+  <rect x="10" y="10" width="180" height="180" rx="16" fill="#2B7AB8"/>
+  
+  <!-- P letter -->
+  <path d="M50 160V45h55c30 0 50 18 50 45s-20 45-50 45H85v25H50z M85 110h15c12 0 20-7 20-20s-8-20-20-20H85v40z" fill="#1a2a3a"/>
+  
+  <!-- PUTZTECH text -->
+  <text x="100" y="225" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="32" font-weight="900" fill="#1a2a3a">PUTZTECH</text>
+</svg>
